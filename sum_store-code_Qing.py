@@ -3,8 +3,8 @@
 import numpy as np
 import pandas as pd
 
-df = pd.read_csv("XUECHENGRONG.csv")
+df = pd.read_csv("file_to_sum.csv")
 
-df['sum_of_Service_Fee'] = df.groupby(['Store Code'])['Service Fee'].transform('sum')
-df2 = df.drop_duplicates(subset=['Store Code'])
+df['sum_new_col'] = df.groupby(['group_col_to_aime'])['targeted_to_sum_col'].transform('sum')
+df2 = df.drop_duplicates(subset=['group_col_to_aime'])
 df2.to_csv("summed_data.csv")
